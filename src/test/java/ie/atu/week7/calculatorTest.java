@@ -14,7 +14,23 @@ class calculatorTest {
     }
 
     @Test
-    void testadd() {
-        assertEquals(5, cal.add(3,2));
+    void testaddSuccess() {
+        assertEquals(8, cal.add(4,4));
     }
+    @Test
+    void testaddFailure() {
+        Exception ex = assertThrows(IllegalArgumentException.class,() -> {cal.add(Integer.MAX_VALUE,2);});
+        assertEquals("this value is too big", ex.getMessage());
+    }
+    @Test
+    void testsubtractSuccess() {
+        assertEquals(5, cal.subtract(10,5));
+    }
+    @Test
+    void testsubtractFailure() {
+        Exception ex = assertThrows(IllegalStateException.class, () ->{cal.subtract(5,10);});
+        assertEquals("this value is not allowed", ex.getMessage());
+    }
+
+
 }
