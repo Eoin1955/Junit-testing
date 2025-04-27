@@ -17,4 +17,11 @@ public class calculator {
         }
         return  firstNum - secondNum;
     }
+    public int divide(int firstNum, int secondNum)
+    {
+        if (secondNum== 0){
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return firstNum / secondNum;
+    }
 }
