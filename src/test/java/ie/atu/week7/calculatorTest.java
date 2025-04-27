@@ -19,8 +19,8 @@ class calculatorTest {
     }
     @Test
     void testaddFailure() {
-        Exception ex = assertThrows(IllegalArgumentException.class,() -> {cal.add(Integer.MAX_VALUE,2);});
-        assertEquals("this value is too big", ex.getMessage());
+        Exception ex = assertThrows(IllegalArgumentException.class,() -> {cal.add(Integer.MAX_VALUE,4);});
+        assertEquals("The value was too big", ex.getMessage());
     }
     @Test
     void testsubtractSuccess() {
@@ -29,7 +29,7 @@ class calculatorTest {
     @Test
     void testsubtractFailure() {
         Exception ex = assertThrows(IllegalStateException.class, () ->{cal.subtract(5,10);});
-        assertEquals("this value is not allowed", ex.getMessage());
+        assertEquals("Negative results are not allowed", ex.getMessage());
     }
     @Test
     void testdivideSuccess() {
