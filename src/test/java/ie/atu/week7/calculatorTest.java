@@ -33,11 +33,23 @@ class calculatorTest {
     }
     @Test
     void testdivideSuccess() {
-        assertEquals(2, myCalc.divide(10,5));
+        assertEquals(2, cal.divide(10,5));
     }
     @Test
     void testdivideFailure() {
-        Exception ex = assertThrows(ArithmeticException.class, () -> {myCalc.divide(10,0);});
+        Exception ex = assertThrows(ArithmeticException.class, () -> {cal.divide(10,0);});
         assertEquals("Cannot divide by zero", ex.getMessage());
+    }
+    @Test
+    void testMultiplySuccess()
+    {
+        assertEquals(10, cal.multiply(5,2));
+    }
+
+    @Test
+    void testMultiplyFailure()
+    {
+        Exception ex = assertThrows(UnsupportedOperationException.class, () ->{cal.multiply(Integer.MAX_VALUE, 2);});
+        assertEquals("Overflow", ex.getMessage());
     }
 }
